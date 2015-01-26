@@ -1,5 +1,5 @@
 ---
-title       : Spanish Accident Mortality
+title       : Spanish Traffic-related Mortality
 subtitle    : Analyzing the last 20 years
 author      : Javier Linares
 job         : Data Manager
@@ -10,18 +10,51 @@ widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
-## Slide 2
-slide 2
+## Introduction
+Are the traffic-related spanish death decreasing over the years?  
+  
+Do the new traffic rules and driving standard impact on the deaths?  
+  
+How many times have you seen the following image in the news?  
+  
+  
+![](./pictures/traffic_accident.jpg)
 
 --- 
-## Slide 3
-slide 3
+## The Tools to Explore Results Over Years
+<img src="./pictures/dashboard.png" width="1000" height="500">
 
 ---
-## Slide 4
-slide 4
+## R Code to Aggregating Data
+The following code is used on the app to aggregate the data frame and sum the columns:
+
+
+```r
+deaths = read.csv("SpanishRoadDeaths.csv")
+deaths$year = NULL
+deaths$total = NULL
+aggre = colSums(deaths)
+data.frame(type = colnames(deaths), deaths=as.vector(aggre))
+```
+
+```
+##         type deaths
+## 1    Bicycle   1920
+## 2 Motorcycle  14026
+## 3        Car  31607
+## 4    Truck.I   3465
+## 5   Truck.II   2470
+## 6        Bus     72
+## 7      Other   1113
+```
 
 ---
-## Slide 5
-slide 5
+## Resources
 
+[ShinyApp Link](https://javilinares.shinyapps.io/Project)  
+  
+[Github Repository for the App Source Code Link](https://github.com/javilin/DevelopingDataProductsProject)  
+  
+[Github Repository for the Slidify presentation Source Code Link](https://github.com/javilin/DevelopingDataProductsProjectSlides)  
+  
+[Data Source Link](http://www.dgt.es/es/seguridad-vial/estadisticas-e-indicadores/accidentes-30dias/series-historicas/)  

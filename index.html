@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Spanish Accident Mortality</title>
+  <title>Spanish Traffic-related Mortality</title>
   <meta charset="utf-8">
-  <meta name="description" content="Spanish Accident Mortality">
+  <meta name="description" content="Spanish Traffic-related Mortality">
   <meta name="author" content="Javier Linares">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +32,7 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>Spanish Accident Mortality</h1>
+    <h1>Spanish Traffic-related Mortality</h1>
     <h2>Analyzing the last 20 years</h2>
     <p>Javier Linares<br/>Data Manager</p>
   </hgroup>
@@ -43,10 +43,16 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Slide 2</h2>
+    <h2>Introduction</h2>
   </hgroup>
   <article data-timings="">
-    <p>slide 2</p>
+    <p>Are the traffic-related spanish death decreasing over the years?  </p>
+
+<p>Do the new traffic rules and driving standard impact on the deaths?  </p>
+
+<p>How many times have you seen the following image in the news?  </p>
+
+<p><img src="./pictures/traffic_accident.jpg" alt=""></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -54,10 +60,10 @@
 
 <slide class="" id="slide-2" style="background:;">
   <hgroup>
-    <h2>Slide 3</h2>
+    <h2>The Tools to Explore Results Over Years</h2>
   </hgroup>
   <article data-timings="">
-    <p>slide 3</p>
+    <p><img src="./pictures/dashboard.png" width="1000" height="500"></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -65,10 +71,27 @@
 
 <slide class="" id="slide-3" style="background:;">
   <hgroup>
-    <h2>Slide 4</h2>
+    <h2>R Code to Aggregating Data</h2>
   </hgroup>
   <article data-timings="">
-    <p>slide 4</p>
+    <p>The following code is used on the app to aggregate the data frame and sum the columns:</p>
+
+<pre><code class="r">deaths = read.csv(&quot;SpanishRoadDeaths.csv&quot;)
+deaths$year = NULL
+deaths$total = NULL
+aggre = colSums(deaths)
+data.frame(type = colnames(deaths), deaths=as.vector(aggre))
+</code></pre>
+
+<pre><code>##         type deaths
+## 1    Bicycle   1920
+## 2 Motorcycle  14026
+## 3        Car  31607
+## 4    Truck.I   3465
+## 5   Truck.II   2470
+## 6        Bus     72
+## 7      Other   1113
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -76,10 +99,16 @@
 
 <slide class="" id="slide-4" style="background:;">
   <hgroup>
-    <h2>Slide 5</h2>
+    <h2>Resources</h2>
   </hgroup>
   <article data-timings="">
-    <p>slide 5</p>
+    <p><a href="https://javilinares.shinyapps.io/Project">ShinyApp Link</a>  </p>
+
+<p><a href="https://github.com/javilin/DevelopingDataProductsProject">Github Repository for the App Source Code Link</a>  </p>
+
+<p><a href="https://github.com/javilin/DevelopingDataProductsProjectSlides">Github Repository for the Slidify presentation Source Code Link</a>  </p>
+
+<p><a href="http://www.dgt.es/es/seguridad-vial/estadisticas-e-indicadores/accidentes-30dias/series-historicas/">Data Source Link</a>  </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -91,25 +120,25 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Slide 2'>
+        data-slide=1 title='Introduction'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 3'>
+        data-slide=2 title='The Tools to Explore Results Over Years'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Slide 4'>
+        data-slide=3 title='R Code to Aggregating Data'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Slide 5'>
+        data-slide=4 title='Resources'>
          4
       </a>
     </li>
