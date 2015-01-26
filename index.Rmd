@@ -13,7 +13,7 @@ knit        : slidify::knit2slides
 ## Introduction
 Are the traffic-related spanish death decreasing over the years?  
   
-Do the new traffic rules and driving standard impact on the deaths?  
+Do the new traffic rules and driving standard impact on deaths?  
   
 How many times have you seen the following image in the news?  
   
